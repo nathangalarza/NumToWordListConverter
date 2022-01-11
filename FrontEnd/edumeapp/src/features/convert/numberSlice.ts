@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { stat } from 'fs';
 import { RootState, AppThunk } from '../../app/store';
+import conversionService from '../../services/conversion.service';
 // import { fetchCount } from './counterAPI';
 
 export interface NumberState {
@@ -26,14 +27,16 @@ export const numberSlice = createSlice({
         // doesn't actually mutate the state because it uses the Immer library,
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
-        state.length += 1;
         state.isEmpty = false;
         state.value += key.payload;
+        state.length = state.value.length;
+        getConversion(state.value);
       },
       removeInput: (state) => {
+       
         if(state.length !== 0){
-          state.length -=1;
           state.value = state.value.slice(0,-1);
+          state.length = state.value.length;
           if(state.length === 0){
             state.isEmpty = true;
           }
@@ -57,9 +60,19 @@ export const numberSlice = createSlice({
     //     });
     // },
   });
+
+
+
   export const { addInput, removeInput } = numberSlice.actions;
 
   export const selectNumber = (state: RootState) => state.number.value;
 
 
   export default numberSlice.reducer;
+
+function getConversion(value: string) {
+  conversionService.get(value)
+  .then((response: any) =>{
+    console.log(response);
+  })
+}
