@@ -1,5 +1,5 @@
 
 
  exports.getConversion = (req, res) => {
-        res.json('done');
+        res.json(req.params.value);
 };

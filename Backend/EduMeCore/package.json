@@ -1,30 +1,74 @@
 {
- 
+ 
   "name": "edumecore",
+ 
   "version": "1.0.0",
+ 
   "description": "This is the eduMe convert num to list app using node.js backend",
+ 
   "main": "index.js",
+ 
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js --exec babel-node --presets env",
-    "release": "npm run clean && npm run build && npm run serve",
-    "clean": "rm -rf dist && mkdir dist",
-    "build": "babel . -s -D -d dist --presets env --ignore node_modules",
-    "serve": "node dist/server.js"
+ 
+   
+  "test": "echo \"Error: no test specified\" && exit 1",
+ 
+   
+  "start": "nodemon server.js --exec babel-node --presets env",
+ 
+   
+  "release": "npm run clean && npm run build && npm run serve",
+ 
+   
+  "clean": "rm -rf dist && mkdir dist",
+ 
+   
+  "build": "babel . -s -D -d dist --presets env --ignore node_modules",
+ 
+   
+  "serve": "node dist/server.js"
+ 
   },
+ 
   "author": "Nathan Galarza",
+ 
   "license": "ISC",
+ 
   "dependencies": {
-    "express": "^4.17.2",
-    "mongoose": "^6.1.6"
+ 
+   
+  "cors": "^2.8.5",
+ 
+   
+  "express": "^4.17.2",
+ 
+   
+  "mongoose": "^6.1.6"
+ 
   },
+ 
   "devDependencies": {
-    "@babel/cli": "^7.16.8",
-    "@babel/core": "^7.16.7",
-    "@babel/node": "^7.16.8",
-    "@babel/preset-env": "^7.16.8",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "nodemon": "^2.0.15"
+ 
+   
+  "@babel/cli": "^7.16.8",
+ 
+   
+  "@babel/core": "^7.16.7",
+ 
+   
+  "@babel/node": "^7.16.8",
+ 
+   
+  "@babel/preset-env": "^7.16.8",
+ 
+   
+  "babel-cli": "^6.26.0",
+ 
+   
+  "babel-preset-env": "^1.7.0",
+ 
+   
+  "nodemon": "^2.0.15"
+ 
   }
 }
