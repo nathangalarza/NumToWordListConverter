@@ -1,15 +1,18 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { stat } from 'fs';
 import { RootState, AppThunk } from '../../app/store';
 // import { fetchCount } from './counterAPI';
 
 export interface NumberState {
     value: string;
     isEmpty: boolean;
+    length: number
 }
 
 const initialState: NumberState = {
     value: '',
-    isEmpty: false,
+    isEmpty: true,
+    length: 0
   };
 
   
@@ -18,14 +21,24 @@ export const numberSlice = createSlice({
     initialState,
     // The `reducers` field lets us define reducers and generate associated actions
     reducers: {
-      addInput: (state) => {
+      addInput : (state, key) => {
         // Redux Toolkit allows us to write "mutating" logic in reducers. It
         // doesn't actually mutate the state because it uses the Immer library,
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
-        state.value += state;
+        state.length += 1;
+        state.isEmpty = false;
+        state.value += key.payload;
       },
       removeInput: (state) => {
+        if(state.length !== 0){
+          state.length -=1;
+          state.value = state.value.slice(0,-1);
+          if(state.length === 0){
+            state.isEmpty = true;
+          }
+        }
+        
         // state.value -= 1;
       },
       // Use the PayloadAction type to declare the contents of `action.payload`
