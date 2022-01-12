@@ -1,5 +1,6 @@
 
-
  exports.getConversion = (req, res) => {
-        res.json(req.params.value);
+
+       let numericStringLength = 3 ** req.params.value.toString().length;
+        res.json(numericStringLength);
 };
