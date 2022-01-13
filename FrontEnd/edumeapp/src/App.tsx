@@ -1,9 +1,9 @@
 import React from 'react';
 // import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import { Convert } from './features/convert/ConvertNumToList';
 
 import './App.scss';
+import { PhoneScreen } from './features/PhoneScreen/PhoneScreen';
+// import { WordsTable } from './features/wordStable/WordStable';
 
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
       <header className="App-header">
      
         {/* <Counter /> */}
-        <Convert/>
+        <PhoneScreen/>
+        {/* <WordsTable/> */}
    
       </header>
     </div>
