@@ -3,6 +3,7 @@ import React from 'react';
 
 import './App.scss';
 import { PhoneScreen } from './features/PhoneScreen/PhoneScreen';
+import { SuggestionHistory } from './features/SuggestionHistory/SuggestionHistory';
 // import { WordsTable } from './features/wordStable/WordStable';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
      
         {/* <Counter /> */}
         <PhoneScreen/>
+        <SuggestionHistory/>
         {/* <WordsTable/> */}
    
       </header>
