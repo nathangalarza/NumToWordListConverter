@@ -14,13 +14,20 @@ export function PhoneScreen(){
     const numberInput = useAppSelector(selectNumber);
 	const suggestions = useAppSelector(selectSuggestions);
     const dispatch = useAppDispatch();
-   
+	//Creates a list item on updates on suggestions
+	const renderedListItems = suggestions.map(suggestId => {
+	return <li> { suggestId + "," }</li>
+	  })
     return (
       <div>
-		  
-      <table id="phone" className={styles.phone}>
+		
+		  <div className={styles.smartphone}>
+			  
+  <div className={styles.content}>
+  <table id="phone" className={styles.phone}>
+  <h2 >EduMessages</h2>
 	  <tr>
-		<td colSpan={3} className={styles.span}>
+		<td colSpan={3} className={styles.numberInput}>
 			<input type="text" 
 		
 			 defaultValue={numberInput} 
@@ -30,7 +37,7 @@ export function PhoneScreen(){
 	<tr>
 		<td>
 			<button data-value="1" className="key" >1
-          <span>. , !</span>
+          <span></span>
         </button>
 		</td>
 		<td>
@@ -98,7 +105,7 @@ export function PhoneScreen(){
 	</tr>
 	<tr>
 		<td>
-			<button data-value="*"  className="key">send</button>
+			<button data-value="*"  className="key">*</button>
 		</td>
 		<td>
 			<button data-value="0" className="key">0</button>
@@ -111,9 +118,12 @@ export function PhoneScreen(){
 	</tr>
 	
        </table>
-	   <div style={{ backgroundColor: '#eee', padding: '20px'}}>
-        { suggestions }
-      </div>
+  </div>
+</div>
+    
+	   {/* <div className={ styles.history}>
+		<li> { renderedListItems }</li>
+      </div> */}
       </div>
       )
 

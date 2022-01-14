@@ -65,7 +65,6 @@ export const numberSlice = createSlice({
     async (numString : string) => {
       const response = await  conversionService.get(numString).then(
         (response: any) =>{
-          console.log(JSON.stringify(response.data));
          return response.data
        }
       );
