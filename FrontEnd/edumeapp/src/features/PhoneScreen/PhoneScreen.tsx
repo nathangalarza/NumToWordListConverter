@@ -13,7 +13,13 @@ import styles from "./phoneScreen.module.scss";
 export function PhoneScreen() {
   const numberInput = useAppSelector(selectNumber);
   const dispatch = useAppDispatch();
+  //Handles input change from phone. 
+  const handleInputChange = (evt :  React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+	let key = evt.currentTarget.dataset.value ?? '' ;
+	dispatch(getCombinationsAsync(numberInput + key));
+	dispatch(addInput(key));
 
+	};
   return (
     <div>
       <div className={styles.smartphone}>
@@ -35,9 +41,8 @@ export function PhoneScreen() {
                 <button
                   data-value="2"
                   className="key"
-                  onClick={() => {
-                    dispatch(getCombinationsAsync(numberInput + "2"));
-                    dispatch(addInput("2"));
+                  onClick={(evt) => {
+					  handleInputChange(evt);   
                   }}
                 >
                   2<span>a b c</span>
@@ -47,10 +52,9 @@ export function PhoneScreen() {
                 <button
                   data-value="3"
                   className="key"
-                  onClick={() => {
-                    dispatch(getCombinationsAsync(numberInput + "3"));
-                    dispatch(addInput("3"));
-                  }}
+                  onClick={(evt) => {
+					handleInputChange(evt);   
+				}}
                 >
                   3<span>d e f</span>
                 </button>
@@ -61,10 +65,9 @@ export function PhoneScreen() {
                 <button
                   data-value="4"
                   className="key"
-                  onClick={() => {
-                    dispatch(getCombinationsAsync(numberInput + "4"));
-                    dispatch(addInput("4"));
-                  }}
+                  onClick={(evt) => {
+					handleInputChange(evt);   
+				}}
                 >
                   4<span>g h i</span>
                 </button>
@@ -73,10 +76,9 @@ export function PhoneScreen() {
                 <button
                   data-value="5"
                   className="key"
-                  onClick={() => {
-                    dispatch(getCombinationsAsync(numberInput + "5"));
-                    dispatch(addInput("5"));
-                  }}
+                  onClick={(evt) => {
+					handleInputChange(evt);   
+				}}
                 >
                   5<span>j k l</span>
                 </button>
@@ -85,10 +87,9 @@ export function PhoneScreen() {
                 <button
                   data-value="6"
                   className="key"
-                  onClick={() => {
-                    dispatch(getCombinationsAsync(numberInput + "6"));
-                    dispatch(addInput("6"));
-                  }}
+                  onClick={(evt) => {
+					handleInputChange(evt);   
+				}}
                 >
                   6<span>m n o</span>
                 </button>
@@ -99,10 +100,9 @@ export function PhoneScreen() {
                 <button
                   data-value="7"
                   className="key"
-                  onClick={() => {
-                    dispatch(addInput("7"));
-                    dispatch(getCombinationsAsync(numberInput + "7"));
-                  }}
+                  onClick={(evt) => {
+					handleInputChange(evt);   
+				}}
                 >
                   7<span>p q r s</span>
                 </button>
@@ -111,10 +111,9 @@ export function PhoneScreen() {
                 <button
                   data-value="8"
                   className="key"
-                  onClick={() => {
-                    dispatch(addInput("8"));
-                    dispatch(getCombinationsAsync(numberInput + "8"));
-                  }}
+                  onClick={(evt) => {
+					handleInputChange(evt);   
+				}}
                 >
                   8<span>t u v</span>
                 </button>
@@ -123,10 +122,9 @@ export function PhoneScreen() {
                 <button
                   data-value="9"
                   className="key"
-                  onClick={() => {
-                    dispatch(addInput("9"));
-                    dispatch(getCombinationsAsync(numberInput + "9"));
-                  }}
+                  onClick={(evt) => {
+					handleInputChange(evt);   
+				}}
                 >
                   9<span>w x y z</span>
                 </button>
