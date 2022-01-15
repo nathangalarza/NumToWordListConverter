@@ -1,6 +1,7 @@
 import numToLettersMap from "../models/numToLettersMap"
- 
- 
+var fs = require("fs");
+const text = fs.readFileSync("../EdumeCore/resources/Dictionaries/engmix.txt", "utf-8");
+const arrayOfWords = text.split("\n");
 exports.getExpansion = (req, res) => {
 
         let numString
@@ -32,7 +33,7 @@ exports.getExpansion = (req, res) => {
             })
             return merge
           })
-          console.log(arrayOfLetters);
+         lettersToWord(arrayOfLetters);
         return res.json(arrayOfLetters);
 };
 
@@ -52,4 +53,17 @@ const numberToLetter = (numberChar) => {
   }
  
   return []
+}
+
+const lettersToWord = (currentLetters) =>{
+  let arrayOfletters = currentLetters.map((letters) =>{
+    let MatchedWords = [];
+    arrayOfWords.map((word)=>{     
+        if(word == letters){
+          console.log(word);
+          MatchedWords.push(word);
+        }
+    });
+    return MatchedWords;
+  });
 }

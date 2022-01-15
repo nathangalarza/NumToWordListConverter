@@ -32,11 +32,12 @@ export function SuggestionHistory() {
       
     
     <div className={styles.history}>
-    <h2>Combinations</h2> 
-      <textarea value={showMore}></textarea>
       <h2>Suggestions</h2>
+      <p>click on ... to see possible combinations</p>
       <div> {renderedListItems}</div>
       
+    <h2>Combinations</h2> 
+      <textarea value={showMore}></textarea>
       <div className={styles.textAreaContent}>
     </div>
     </div>
