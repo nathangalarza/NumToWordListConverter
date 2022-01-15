@@ -42,7 +42,7 @@ export function CombinationHistory() {
         <h2>Combinations</h2>
         <textarea value={showMore}></textarea>
         <div className={styles.textAreaContent}></div>
-        <p>click on ... to see possible combinations</p>
+        <p>Click on '...' to see all possible combinations</p>
         <div> {renderedListItems}</div>
 
       </div>
