@@ -1,89 +1,78 @@
 .phone {
-	button {
-		// height: 50px;
-		width: 80px;
-		border: 1px solid #9e9e9e;
-		border-radius: 50%;
-		-moz-border-radius: 999px;
-		height: 80px;
-		background-color: #fff;
-		color: #333;
-		cursor: pointer;
-		span {
-			display: block;
-			margin-top: 5px;
-			font-size: 10px;
-		}
-	
-	}	
-	display: inline-block;
-    padding-top: 40px;
+  button {
+    width: 80px;
+    border: 1px solid #9e9e9e;
+    border-radius: 50%;
+    -moz-border-radius: 999px;
+    height: 80px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    span {
+      display: block;
+      margin-top: 5px;
+      font-size: 10px;
+    }
+  }
+  display: inline-block;
+  padding-top: 40px;
 }
 
-.numberInput{
-	
-	input{
-		height: 20px;
-		width: 300px;
-
-		
-	}
-	
-	
-	
+.numberInput {
+  input {
+    height: 20px;
+    width: 300px;
+  }
 }
 
-.words{
-	height: 10px;
-	width: 1000px;
+.words {
+  height: 10px;
+  width: 1000px;
 }
-.wordInput{
-	
+.wordInput {
 }
 .smartphone {
+  position: relative;
+  width: 360px;
+  height: 640px;
+  margin: 50px;
+  border: 16px black solid;
+  border-top-width: 60px;
+  border-bottom-width: 60px;
+  border-radius: 36px;
+}
 
-	position: relative;
-	width: 360px;
-	height: 640px;
-	margin: 50px;
-	border: 16px black solid;
-	border-top-width: 60px;
-	border-bottom-width: 60px;
-	border-radius: 36px;
-  }
-  
-  /* The horizontal line on the top of the device */
-  .smartphone:before {
-	content: '';
-	display: block;
-	width: 60px;
-	height: 5px;
-	position: absolute;
-	top: -30px;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: #333;
-	border-radius: 10px;
-  }
-  
-  /* The circle on the bottom of the device */
-  .smartphone:after {
-	content: '';
-	display: block;
-	width: 35px;
-	height: 35px;
-	position: absolute;
-	left: 50%;
-	bottom: -65px;
-	transform: translate(-50%, -50%);
-	background: #333;
-	border-radius: 50%;
-  }
-  
-  /* The screen (or content) of the device */
-  .smartphone .content {
-	width: 360px;
-	height: 640px;
-	background: white;
-  }
+/* The horizontal line on the top of the device */
+.smartphone:before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 10px;
+}
 
+/* The circle on the bottom of the device */
+.smartphone:after {
+  content: "";
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  bottom: -65px;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 50%;
+}
+
+/* The screen (or content) of the device */
+.smartphone .content {
+  width: 360px;
+  height: 640px;
+  background: white;
+}

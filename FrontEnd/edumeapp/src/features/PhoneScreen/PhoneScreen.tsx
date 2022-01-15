@@ -32,12 +32,17 @@ export function PhoneScreen() {
             <tr>
               <td colSpan={3} className={styles.numberInput}>
                 <input type="text" defaultValue={numberInput} />
-                <input style={{
-                  outline : "none", 
-                  textAlign: "center", 
-                  outlineStyle: "none", 
-                  border :"none", 
-                  color : "grey"}} type="text" defaultValue={suggestions} />
+                <input
+                  style={{
+                    outline: "none",
+                    textAlign: "center",
+                    outlineStyle: "none",
+                    border: "none",
+                    color: "grey",
+                  }}
+                  type="text"
+                  defaultValue={suggestions}
+                />
               </td>
             </tr>
             <tr>

@@ -33,13 +33,13 @@ export const phoneSlice = createSlice({
         state.value = state.value.slice(0, -1);
       }
     },
-    addShowMore: (state, input) =>{
-     state.showMore = input.payload;
+    addShowMore: (state, input) => {
+      state.showMore = input.payload;
     }
 
     // Use the PayloadAction type to declare the contents of `action.payload`
 
-  }, 
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCombinationsAsync.pending, (state) => {
@@ -56,7 +56,7 @@ export const phoneSlice = createSlice({
 
 });
 
-export const { addInput, removeInput ,addShowMore} = phoneSlice.actions;
+export const { addInput, removeInput, addShowMore } = phoneSlice.actions;
 export const selectNumber = (state: RootState) => state.phone.value;
 export const selectCombinations = (state: RootState) => state.phone.combinations;
 export const selectShowMore = (state: RootState) => state.phone.showMore;
