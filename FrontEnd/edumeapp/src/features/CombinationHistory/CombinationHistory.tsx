@@ -13,7 +13,6 @@ export function CombinationHistory() {
   const dispatch = useAppDispatch();
 
   let index = 0;
-  let textAreaText = "";
   const readMore = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     item: string

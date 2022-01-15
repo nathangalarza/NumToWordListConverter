@@ -36,9 +36,8 @@ exports.getExpansion = (req, res) => {
       });
       return merge;
     });
-
+  
   let resp = lettersToWord(arrayOfLetters);
-
   return res.json({ letters: arrayOfLetters, words: resp });
 };
 
@@ -62,7 +61,7 @@ const numberToLetter = (numberChar) => {
 
 const lettersToWord = (currentLetters) => {
   let MatchedWords = [];
-  let arrayOfMathcedWords = currentLetters.map((letters) => {
+  currentLetters.map((letters) => {
     arrayOfWords.map((word) => {
       if (word == letters) {
         MatchedWords.push(word);
