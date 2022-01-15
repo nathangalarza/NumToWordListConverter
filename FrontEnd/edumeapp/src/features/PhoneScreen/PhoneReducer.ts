@@ -1,23 +1,23 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
-import conversionService from '../../services/conversion.service';
+import phoneService from '../../services/conversion.service';
 
 ;
 
 export interface PhoneState {
   value: string;
   status: 'idle' | 'loading' | 'failed';
-  suggestions: string[];
+  combinations: string[];
   showMore: string;
-  words: string[];
+  suggestions: string[];
 }
 
 const initialState: PhoneState = {
   value: '',
   status: 'idle',
-  suggestions: [],
+  combinations: [],
   showMore: '',
-  words: []
+  suggestions: []
 };
 
 export const phoneSlice = createSlice({
@@ -47,9 +47,9 @@ export const phoneSlice = createSlice({
       })
       .addCase(getCombinationsAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.suggestions.push(action.payload.letters);
-        state.words.pop();
-        state.words.push(action.payload.words);
+        state.combinations.push(action.payload.letters);
+        state.suggestions.pop();
+        state.suggestions.push(action.payload.words);
       });
 
   },
@@ -58,16 +58,16 @@ export const phoneSlice = createSlice({
 
 export const { addInput, removeInput ,addShowMore} = phoneSlice.actions;
 export const selectNumber = (state: RootState) => state.phone.value;
-export const selectSuggestions = (state: RootState) => state.phone.suggestions;
+export const selectCombinations = (state: RootState) => state.phone.combinations;
 export const selectShowMore = (state: RootState) => state.phone.showMore;
-export const selectWords = (state: RootState) => state.phone.words;
+export const selectSuggestions = (state: RootState) => state.phone.suggestions;
 
 export default phoneSlice.reducer;
 
 export const getCombinationsAsync = createAsyncThunk(
   'number/fetchLetters',
   async (numString: string) => {
-    const response = await conversionService.get(numString).then(
+    const response = await phoneService.get(numString).then(
       (response: any) => {
         return response.data
       }

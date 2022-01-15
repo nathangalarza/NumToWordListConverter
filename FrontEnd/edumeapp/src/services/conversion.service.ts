@@ -1,11 +1,8 @@
 import http from "../http-common";
  
-class conversionService {
-
+class phoneService {
     get(value: string){
         return http.get<any>(`/convert/${value}`)
     }
-
 }
-
-export default new conversionService();
+export default new phoneService();
