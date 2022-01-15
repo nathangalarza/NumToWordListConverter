@@ -2,13 +2,13 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   addInput,
   selectShowMore,
-  selectSuggestions,
+  selectCombinations,
   addShowMore,
 } from "../PhoneScreen/PhoneReducer";
-import styles from "./SuggestionHistory.module.scss";
+import styles from "./CombinationHistory.module.scss";
 
-export function SuggestionHistory() {
-  const suggestions = useAppSelector(selectSuggestions);
+export function CombinationHistory() {
+  const Combinations = useAppSelector(selectCombinations);
   const showMore = useAppSelector(selectShowMore);
   const dispatch = useAppDispatch();
 
@@ -20,7 +20,7 @@ export function SuggestionHistory() {
   ) => {
     dispatch(addShowMore(item));
   };
-  const renderedListItems = suggestions.map((suggestId) => {
+  const renderedListItems = Combinations.map((suggestId) => {
     index++;
     let item = index + "-" + suggestId + "," + "  ";
     if (item.length > 50) {
@@ -42,7 +42,6 @@ export function SuggestionHistory() {
         <h2>Combinations</h2>
         <textarea value={showMore}></textarea>
         <div className={styles.textAreaContent}></div>
-        <h2>Suggestions</h2>
         <p>click on ... to see possible combinations</p>
         <div> {renderedListItems}</div>
 

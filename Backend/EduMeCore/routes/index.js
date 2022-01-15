@@ -1,4 +1,4 @@
-import convert from '../controllers/converterController';
+import convert from '../controllers/phoneController';
 
 export default (app) => {
     app.route('/convert/:value')

@@ -3,6 +3,7 @@ import lettersResponseModel from "../models/LettersResponseModel"
 var fs = require("fs");
 const text = fs.readFileSync("../EdumeCore/resources/Dictionaries/engmix.txt", "utf-8");
 const arrayOfWords = text.split("\n");
+
 exports.getExpansion = (req, res) => {
 
         let numString
@@ -63,7 +64,6 @@ const lettersToWord = (currentLetters) =>{
   let arrayOfMathcedWords = currentLetters.map((letters) =>{
     arrayOfWords.map((word)=>{     
         if(word == letters){
-          console.log(word);
           MatchedWords.push(word);
         }
     });

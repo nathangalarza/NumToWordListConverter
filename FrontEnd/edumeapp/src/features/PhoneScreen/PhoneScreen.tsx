@@ -5,7 +5,7 @@ import {
   getCombinationsAsync,
   removeInput,
   selectNumber,
-  selectWords,
+  selectSuggestions,
 } from "./PhoneReducer";
 
 import styles from "./phoneScreen.module.scss";
@@ -13,7 +13,7 @@ import styles from "./phoneScreen.module.scss";
 export function PhoneScreen() {
   const numberInput = useAppSelector(selectNumber);
   const dispatch = useAppDispatch();
-  const words = useAppSelector(selectWords);
+  const suggestions = useAppSelector(selectSuggestions);
   //Handles input change from phone.
   const handleInputChange = (
     evt: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -37,7 +37,7 @@ export function PhoneScreen() {
                   textAlign: "center", 
                   outlineStyle: "none", 
                   border :"none", 
-                  color : "grey"}} type="text" defaultValue={words} />
+                  color : "grey"}} type="text" defaultValue={suggestions} />
               </td>
             </tr>
             <tr>
