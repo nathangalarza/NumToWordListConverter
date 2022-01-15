@@ -1,6 +1,8 @@
 import numToLettersMap from "../models/numToLettersMap"
- 
- 
+import lettersResponseModel from "../models/LettersResponseModel"
+var fs = require("fs");
+const text = fs.readFileSync("../EdumeCore/resources/Dictionaries/engmix.txt", "utf-8");
+const arrayOfWords = text.split("\n");
 exports.getExpansion = (req, res) => {
 
         let numString
@@ -32,8 +34,10 @@ exports.getExpansion = (req, res) => {
             })
             return merge
           })
-          console.log(arrayOfLetters);
-        return res.json(arrayOfLetters);
+          
+         let resp = lettersToWord(arrayOfLetters);
+
+        return res.json({letters: arrayOfLetters,words: resp});
 };
 
 //This function number to letter changes the corresponding number to a letter. 
@@ -52,4 +56,17 @@ const numberToLetter = (numberChar) => {
   }
  
   return []
+}
+
+const lettersToWord = (currentLetters) =>{
+  let MatchedWords = [];
+  let arrayOfMathcedWords = currentLetters.map((letters) =>{
+    arrayOfWords.map((word)=>{     
+        if(word == letters){
+          console.log(word);
+          MatchedWords.push(word);
+        }
+    });
+  });
+  return MatchedWords;
 }

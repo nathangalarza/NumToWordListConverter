@@ -1,0 +1,4 @@
+const lettersResponseModel = {
+    letters: [],
+    Words: []
+};

@@ -1,7 +1,6 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 import phoneReducer from '../features/PhoneScreen/PhoneReducer';
-import conversionService from '../services/conversion.service';
 //This is where the Store for the reducers are created
 
 export interface IAction {
@@ -11,7 +10,7 @@ export interface IAction {
 
 export const store = configureStore({
   reducer: {
-    phone: phoneReducer
+    phone: phoneReducer,
   },
 });
 
