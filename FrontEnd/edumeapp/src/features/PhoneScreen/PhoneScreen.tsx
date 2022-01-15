@@ -5,7 +5,6 @@ import {
   getCombinationsAsync,
   removeInput,
   selectNumber,
-  selectSuggestions,
 } from "./PhoneReducer";
 
 import styles from "./phoneScreen.module.scss";

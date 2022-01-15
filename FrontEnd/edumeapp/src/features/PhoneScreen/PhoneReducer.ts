@@ -8,12 +8,14 @@ export interface PhoneState {
   value: string;
   status: 'idle' | 'loading' | 'failed';
   suggestions: string[];
+  showMore: string
 }
 
 const initialState: PhoneState = {
   value: '',
   status: 'idle',
-  suggestions: []
+  suggestions: [],
+  showMore: ''
 };
 
 export const phoneSlice = createSlice({
@@ -29,10 +31,13 @@ export const phoneSlice = createSlice({
         state.value = state.value.slice(0, -1);
       }
     },
+    addShowMore: (state, input) =>{
+     state.showMore = input.payload;
+    }
 
     // Use the PayloadAction type to declare the contents of `action.payload`
 
-  },
+  }, 
   extraReducers: (builder) => {
     builder
       .addCase(getCombinationsAsync.pending, (state) => {
@@ -47,9 +52,11 @@ export const phoneSlice = createSlice({
 
 });
 
-export const { addInput, removeInput } = phoneSlice.actions;
+export const { addInput, removeInput ,addShowMore} = phoneSlice.actions;
 export const selectNumber = (state: RootState) => state.phone.value;
 export const selectSuggestions = (state: RootState) => state.phone.suggestions;
+export const selectShowMore = (state: RootState) => state.phone.showMore;
+
 export default phoneSlice.reducer;
 
 export const getCombinationsAsync = createAsyncThunk(

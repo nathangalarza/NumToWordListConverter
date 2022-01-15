@@ -1,4 +1,5 @@
 .history {
+	display: block;
     padding-top: 100px;
 	li{
 
@@ -10,4 +11,24 @@
 	}
 	width: 225px;
 	height: 25px;
+	p{
+		text-align: left;
+		font-size: 20px;
+	}
+	a{color: white;
+		cursor: pointer;
+		font-size: 20px;
+	}
+
+	.textAreaContent{
+	width: 700px;
+	}
+	textarea{
+		width: 700px;
+		max-width: 700px;
+		height: 100px;
+		resize: none;
+	}
+	
 } 
+
